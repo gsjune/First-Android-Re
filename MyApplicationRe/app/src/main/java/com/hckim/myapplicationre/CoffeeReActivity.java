@@ -13,7 +13,7 @@ public class CoffeeReActivity extends AppCompatActivity {
     private TextView mPriceTextView; // (b)
     private int mQuantity = 1; // 메소드에서 1을 내리고 올리기 위해 변수 필요
 
-    private DecimalFormat mFormat = new DecimalFormat("#,##0.00");
+    private DecimalFormat mFormat = new DecimalFormat("#,##0");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +50,14 @@ public class CoffeeReActivity extends AppCompatActivity {
         }
         mQuantityTextView.setText("" + mQuantity);
 
-        mPriceTextView.setText(mQuantity * 3000 + "원"); // (d)
+        mPriceTextView.setText(mFormat.format(mQuantity * 3000) + "원"); // (d)
     }
 
     public void plusButtonClicked(View view) {
         mQuantity++;
         mQuantityTextView.setText("" + mQuantity);
 
-        mPriceTextView.setText(mQuantity * 3000 + "원"); // (e)
+        mPriceTextView.setText(mFormat.format(mQuantity * 3000) + "원"); // (e)
 
     }
 }

@@ -11,6 +11,8 @@ public class CoffeeReActivity extends AppCompatActivity {
 
     public static final int MIN_QUANTITY = 1; // 상수로 바꿀 때 새로 생김
     public static final int DEFAULT_QUANTITY = 1; // 상수로 바꿀 때 새로 생김
+    public static final int COFFEE_PRICE = 3000;
+
     private TextView mQuantityTextView; // 로컬 변수로 전역 변수로 바꿈
     private TextView mPriceTextView; // (b)
     private int mQuantity = DEFAULT_QUANTITY; // 메소드에서 1을 내리고 올리기 위해 변수 필요
@@ -38,29 +40,38 @@ public class CoffeeReActivity extends AppCompatActivity {
 
         // quantityTextView.setText("10");
 //        mQuantityTextView.setText("10");
-        mQuantityTextView.setText("" + mQuantity); // mQuantity만 있으면 빨간줄
 //        mQuantityTextView.setText(String.valueOf(mQuantity)); // 또 다른 방법
 
-        mPriceTextView.setText(mFormat.format(mQuantity * 3000) + "원"); // (c)
+//        mQuantityTextView.setText("" + mQuantity); // mQuantity만 있으면 빨간줄
+//        mPriceTextView.setText(mFormat.format(mQuantity * COFFEE_PRICE) + "원"); // (c)
+        // 두 줄 메소드로 FInd Action method
+
+        display();
+    }
+
+    private void display() { // 아래 두 줄을 display() 메소드로 바꿈
+        mQuantityTextView.setText("" + mQuantity); // mQuantity만 있으면 빨간줄
+        mPriceTextView.setText(mFormat.format(mQuantity * COFFEE_PRICE) + "원"); // (c)
     }
 
     // (2)'
     public void minusButtonClicked(View view) {
 //        Toast.makeText(this, "잘 눌림", Toast.LENGTH_SHORT).show(); // 화면 확인
         mQuantity--;
-        if (mQuantity < MIN_QUANTITY) { // 1을 상수인 MIN_QUANTITY로
+        if (mQuantity < MIN_QUANTITY) { // 최소 수량 1을 상수인 MIN_QUANTITY로 Find Action constant
             mQuantity = MIN_QUANTITY;
         }
-        mQuantityTextView.setText("" + mQuantity);
-
-        mPriceTextView.setText(mFormat.format(mQuantity * 3000) + "원"); // (d)
+//        mQuantityTextView.setText("" + mQuantity);
+//        mPriceTextView.setText(mFormat.format(mQuantity * COFFEE_PRICE) + "원"); // (d)
+        display();
     }
 
     public void plusButtonClicked(View view) {
         mQuantity++;
-        mQuantityTextView.setText("" + mQuantity);
 
-        mPriceTextView.setText(mFormat.format(mQuantity * 3000) + "원"); // (e)
+//        mQuantityTextView.setText("" + mQuantity);
+//        mPriceTextView.setText(mFormat.format(mQuantity * COFFEE_PRICE) + "원"); // (e)
+        display();
 
     }
 }

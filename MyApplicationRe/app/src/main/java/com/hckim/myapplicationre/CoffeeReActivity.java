@@ -9,9 +9,12 @@ import java.text.DecimalFormat;
 
 public class CoffeeReActivity extends AppCompatActivity {
 
+    public static final int MIN_QUANTITY = 1; // 상수로 바꿀 때 새로 생김
+    public static final int DEFAULT_QUANTITY = 1; // 상수로 바꿀 때 새로 생김
     private TextView mQuantityTextView; // 로컬 변수로 전역 변수로 바꿈
     private TextView mPriceTextView; // (b)
-    private int mQuantity = 1; // 메소드에서 1을 내리고 올리기 위해 변수 필요
+    private int mQuantity = DEFAULT_QUANTITY; // 메소드에서 1을 내리고 올리기 위해 변수 필요
+    // 1을 상수로 바꿈
 
     private DecimalFormat mFormat = new DecimalFormat("#,##0");
 
@@ -38,15 +41,15 @@ public class CoffeeReActivity extends AppCompatActivity {
         mQuantityTextView.setText("" + mQuantity); // mQuantity만 있으면 빨간줄
 //        mQuantityTextView.setText(String.valueOf(mQuantity)); // 또 다른 방법
 
-        mPriceTextView.setText("3000원"); // (c)
+        mPriceTextView.setText(mFormat.format(mQuantity * 3000) + "원"); // (c)
     }
 
     // (2)'
     public void minusButtonClicked(View view) {
 //        Toast.makeText(this, "잘 눌림", Toast.LENGTH_SHORT).show(); // 화면 확인
         mQuantity--;
-        if (mQuantity < 1) {
-            mQuantity = 1;
+        if (mQuantity < MIN_QUANTITY) { // 1을 상수인 MIN_QUANTITY로
+            mQuantity = MIN_QUANTITY;
         }
         mQuantityTextView.setText("" + mQuantity);
 

@@ -3,6 +3,7 @@ package com.hckim.myapplicationre;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -15,6 +16,7 @@ public class CoffeeReActivity extends AppCompatActivity {
 
     private TextView mQuantityTextView; // 로컬 변수로 전역 변수로 바꿈
     private TextView mPriceTextView; // (b)
+    private CheckBox mWhippedCreamCheckBox;
     private int mQuantity = DEFAULT_QUANTITY; // 메소드에서 1을 내리고 올리기 위해 변수 필요
     // 1을 상수로 바꿈
 
@@ -46,12 +48,19 @@ public class CoffeeReActivity extends AppCompatActivity {
 //        mPriceTextView.setText(mFormat.format(mQuantity * COFFEE_PRICE) + "원"); // (c)
         // 두 줄 메소드로 FInd Action method
 
+        mWhippedCreamCheckBox = (CheckBox) findViewById(R.id.whipped_cream_check);
+
         display();
     }
 
     private void display() { // 아래 두 줄을 display() 메소드로 바꿈
         mQuantityTextView.setText("" + mQuantity); // mQuantity만 있으면 빨간줄
-        mPriceTextView.setText(mFormat.format(mQuantity * COFFEE_PRICE) + "원"); // (c)
+        String message = "휘핑 크림 추가 여부: " + mWhippedCreamCheckBox.isChecked();
+        message += "\n갯수: " + mQuantity;
+        message += "\n가격: " + mFormat.format(mQuantity * COFFEE_PRICE) + "원";
+
+//        mPriceTextView.setText(mFormat.format(mQuantity * COFFEE_PRICE) + "원"); // (c)
+        mPriceTextView.setText(message);
     }
 
     // (2)'
@@ -73,5 +82,16 @@ public class CoffeeReActivity extends AppCompatActivity {
 //        mPriceTextView.setText(mFormat.format(mQuantity * COFFEE_PRICE) + "원"); // (e)
         display();
 
+    }
+
+    public void onCheckBoxClicked(View view) {
+//        CheckBox checkBox = (CheckBox) view;
+//
+//        if (checkBox.isChecked()) {
+//
+//        } else {
+//
+//        }
+        display();
     }
 }

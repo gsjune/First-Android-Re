@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.hckim.myapplicationre.ActivityMoveActivity">
-<!--id 우 클릭 refactor rename-->
+    <!--id 우 클릭 refactor rename-->
     <Button
         android:id="@+id/coffee_button"
         android:layout_width="wrap_content"
@@ -18,5 +18,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="농구 앱" />
+
+    <Button
+        android:id="@+id/send_data_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="데이터 전송" />
 
 </LinearLayout>

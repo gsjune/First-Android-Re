@@ -10,16 +10,19 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="고 객 관 리"/>
+        android:text="고 객 관 리"
+        android:onClick="onCustomerManagementButtonClicked"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="매 출 관 리"/>
+        android:text="매 출 관 리"
+        android:onClick="onSalesManagementButtonClicked"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="상 품 관 리"/>
+        android:text="상 품 관 리"
+        android:onClick="onMerchandiseManagementClicked"/>
 
 </LinearLayout>

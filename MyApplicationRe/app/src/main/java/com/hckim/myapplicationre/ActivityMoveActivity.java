@@ -1,5 +1,6 @@
 package com.hckim.myapplicationre;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -33,6 +34,9 @@ public class ActivityMoveActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 //                Toast.makeText(ActivityMoveActivity.this, "잘 된다", Toast.LENGTH_SHORT).show(); // B(5): B(2)과 B(1) 6줄 없앰 B(6)'
+                // 의도
+                Intent intent = new Intent(ActivityMoveActivity.this, ScoreboardReActivity.class);
+                startActivity(intent); // intent에 new Intent(ActivityMoveActivity.this, ScoreboardReActivity.class) 넣어도 됨
             }
         });
     }

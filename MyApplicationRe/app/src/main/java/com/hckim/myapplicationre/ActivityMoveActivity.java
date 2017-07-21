@@ -9,6 +9,9 @@ import android.widget.Toast;
 
 public class ActivityMoveActivity extends AppCompatActivity {
 
+    public static final int REQUEST_CODE = 1000;
+    public static final int REQUEST_CODE_AGE = 1000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +42,31 @@ public class ActivityMoveActivity extends AppCompatActivity {
                 startActivity(intent); // intent에 new Intent(ActivityMoveActivity.this, ScoreboardReActivity.class) 넣어도 됨
             }
         });
+
+        findViewById(R.id.send_data_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String message = "축하합니다";
+                Intent intent = new Intent(ActivityMoveActivity.this, TargetActivity.class);
+                intent.putExtra("data", message);
+//                startActivity(intent); // C(1) 데이터만 보내려고 할 때
+                startActivityForResult(intent, REQUEST_CODE_AGE); // C(2) 데이터를 보내고 결과를 받으려고 할 때
+            }
+        });
     }
 
-//    class MyClickListener implements View.OnClickListener { // (4) OnClickListener는 인터페이스. onClick 메소드 구현해야
+    // startActivityForResult 결과 받는 곳
+    @Override // D(1) onac... Enter
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_AGE && resultCode == RESULT_OK && data != null) { // D(2) 예
+            int age = data.getIntExtra("age", 0);
+            Toast.makeText(this, "" + age, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    //    class MyClickListener implements View.OnClickListener { // (4) OnClickListener는 인터페이스. onClick 메소드 구현해야
 
     class MyClickListener implements View.OnClickListener { // (5) Alt Enter -> method Override됨
 

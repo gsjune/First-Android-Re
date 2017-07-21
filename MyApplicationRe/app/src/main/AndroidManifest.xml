@@ -16,14 +16,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CoffeeReActivity">
+        <activity
+            android:name=".CoffeeReActivity"
+            android:label="커피 주문">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ScoreboardReActivity">
+        <activity
+            android:name=".ScoreboardReActivity"
+            android:label="농구 점수">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ActivityMoveActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

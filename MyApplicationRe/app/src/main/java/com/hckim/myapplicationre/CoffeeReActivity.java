@@ -1,5 +1,7 @@
 package com.hckim.myapplicationre;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
@@ -103,7 +105,20 @@ public class CoffeeReActivity extends AppCompatActivity {
     }
 
     public void orderButtonClicked(View view) {
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
 
+        // 요런 것도 됨됨
+//       Intent intent = new Intent();
+//        intent.setAction(Intent.ACTION_SENDTO);
+
+        intent.setData(Uri.parse("mailto:"));
+        intent.putExtra(Intent.EXTRA_EMAIL, new String[]{"gsjune@naver.com"});
+        intent.putExtra(Intent.EXTRA_SUBJECT, "주문이요");
+        intent.putExtra(Intent.EXTRA_TEXT, mPriceTextView.getText().toString());
+
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
     }
 
     @Override

@@ -2,6 +2,8 @@ package com.hckim.myapplicationre;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -98,5 +100,16 @@ public class CoffeeReActivity extends AppCompatActivity {
 //
 //        }
         display();
+    }
+
+    public void orderButtonClicked(View view) {
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
     }
 }

@@ -19,6 +19,14 @@ public class ScoreboardReActivity extends AppCompatActivity {
 
         mScoreATextView = (TextView) findViewById(R.id.score_a_text); // mScoreATextView Alt Enter
         mScoreBTextView = (TextView) findViewById(R.id.score_b_text); // mScoreATextView 필드에 추가
+
+        if (savedInstanceState != null) { // D(3) 실행하면 D(2)와 같은 결과
+            mScoreA = savedInstanceState.getInt("a"); // D(2)'에서 복사
+            mScoreB = savedInstanceState.getInt("b");
+
+            mScoreATextView.setText("" + mScoreA);
+            mScoreBTextView.setText("" + mScoreB);
+        }
     }
 
     public void threePointsAButtonClicked(View view) {
@@ -67,15 +75,15 @@ public class ScoreboardReActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
     }
 
-    @Override // D(2)
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-
-        // 복원
-        mScoreA = savedInstanceState.getInt("a");
-        mScoreB = savedInstanceState.getInt("b");
-
-        mScoreATextView.setText("" + mScoreA); // D(2)' 위에서 복사 붙여넣기
-        mScoreBTextView.setText("" + mScoreB);
-    }
+//    @Override // D(2) D(2)' 위의 onCreate에서도 복원된다
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//
+//        // 복원
+//        mScoreA = savedInstanceState.getInt("a");
+//        mScoreB = savedInstanceState.getInt("b");
+//
+//        mScoreATextView.setText("" + mScoreA); // 위에서 복사 붙여넣기
+//        mScoreBTextView.setText("" + mScoreB);
+//    }
 }

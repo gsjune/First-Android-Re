@@ -93,4 +93,21 @@ public class LifeCycleActivity extends AppCompatActivity {
         mNum++;
         ((Button) view).setText("" + mNum);
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) { // D(1)
+        Log.d(TAG, "onSaveInstanceState: ");
+        // 저장
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) { // D(2)
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.d(TAG, "onRestoreInstanceState: ");
+
+        // 복원
+    }
 }
+

@@ -57,4 +57,25 @@ public class ScoreboardReActivity extends AppCompatActivity {
         mScoreATextView.setText("" + mScoreA);
         mScoreBTextView.setText("" + mScoreB);
     }
+
+    @Override // D(1) cf. LifeCycleActivity.java
+    protected void onSaveInstanceState(Bundle outState) {
+        // 저장
+        outState.putInt("a", mScoreA);
+        outState.putInt("b", mScoreB);
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override // D(2)
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // 복원
+        mScoreA = savedInstanceState.getInt("a");
+        mScoreB = savedInstanceState.getInt("b");
+
+        mScoreATextView.setText("" + mScoreA); // D(2)' 위에서 복사 붙여넣기
+        mScoreBTextView.setText("" + mScoreB);
+    }
 }

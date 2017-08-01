@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.hckim.myapplicationre.fragment.basketball.BasketballActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <fragment
+            android:id="@+id/frag_team_a"
+            android:name="com.hckim.myapplicationre.fragment.basketball.BaketballScoreFragment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_score" />
+
+        <fragment
+            android:id="@+id/frag_team_b"
+            android:name="com.hckim.myapplicationre.fragment.basketball.BaketballScoreFragment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            tools:layout="@layout/fragment_score" />
+        <!--전체 화면 우하 파란 글씨 클릭-->
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="#ff7043"
+        android:onClick="onResetButtonClicked"
+        android:text="reset" />
+
+</LinearLayout>

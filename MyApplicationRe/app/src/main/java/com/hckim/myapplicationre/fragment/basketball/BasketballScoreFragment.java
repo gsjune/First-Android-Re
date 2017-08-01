@@ -14,7 +14,7 @@ import com.hckim.myapplicationre.R;
  * Created by K on 2017-08-01.
  */
 
-public class BaketballScoreFragment extends Fragment implements View.OnClickListener {
+public class BasketballScoreFragment extends Fragment implements View.OnClickListener {
     private TextView mScoreTextView;
     private TextView mTeamNameTextView; // (8)''' (8)"의 결과
     private int mScore; // (5)

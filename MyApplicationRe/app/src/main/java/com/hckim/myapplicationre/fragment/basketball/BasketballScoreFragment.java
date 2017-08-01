@@ -48,6 +48,17 @@ public class BasketballScoreFragment extends Fragment implements View.OnClickLis
         view.findViewById(R.id.button_1).setOnClickListener(this); // (3) this Alt Enter ...implement... Enter
         view.findViewById(R.id.button_2).setOnClickListener(this); // (3)' this Alt Enter ...implement... Enter
         view.findViewById(R.id.button_3).setOnClickListener(this); // (3)" this Alt Enter ...implement... Enter
+
+        if (savedInstanceState != null) { // B(2)
+            mScore = savedInstanceState.getInt("score");
+            mScoreTextView.setText("" + mScore);
+        }
+    }
+
+    @Override // B(1)
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putInt("score", mScore);
+        super.onSaveInstanceState(outState);
     }
 
     @Override // (4) (3)의 결과
